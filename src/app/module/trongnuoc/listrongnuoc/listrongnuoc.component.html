@@ -1,0 +1,31 @@
+<button type="button" [routerLink]="['add']" class="btn btn-primary">Add bưu kiện</button>
+<!-- <div class="search-hero">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" (input)="search()" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+</div>
+{{searchText}} -->
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of buuKiens  ">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.city}}</td>
+            <td>{{item.price |currency:"USD" }}</td>
+            <td>
+
+                <button type="button" class="btn btn-success" [routerLink]="[item.id,'edit']">Sửa</button>
+
+                <button type="button" class="btn btn-danger" (click)="onDeleteBuuKien(item.id)">Xóa</button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

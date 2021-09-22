@@ -1,0 +1,21 @@
+.container {
+    border: 2px solid rgb(238, 230, 230);
+    margin: auto;
+    margin-top: 13rem;
+}
+
+.container {
+    width: 550px;
+}
+
+#dangnhap {
+    width: 515px;
+}
+
+.invalid-feedback {
+    color: red;
+}
+
+.containers {
+    margin: 50px;
+}

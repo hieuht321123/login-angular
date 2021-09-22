@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Thêm bưu kiện</h2>
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="names" [(ngModel)]="tutorial.name">
+
+            <div *ngIf="f.names.invalid && (f.names.dirty || f.names.touched)">
+                <div *ngIf="f.names.errors" class="invalid-feedback">
+                    <div *ngIf="f.names.errors.required">Bạn cần nhập tên bưu kiện</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pwd">City:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Enter city" formControlName="citys" [(ngModel)]="tutorial.city">
+            <div *ngIf="f.citys.invalid && (f.names.dirty || f.citys.touched)">
+                <div *ngIf="f.citys.errors" class="invalid-feedback">
+                    <div *ngIf="f.citys.errors.required">Bạn cần nhập tên thành phố</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" class="form-control" id="price" placeholder="Enter price" formControlName="prices" [(ngModel)]="tutorial.price">
+            <div *ngIf="f.prices.invalid && (f.prices.dirty || f.prices.touched)">
+                <div *ngIf="f.prices.errors" class="invalid-feedback">
+                    <div *ngIf="f.prices.errors.required">Bạn cần nhập giá của bưu kiện</div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Thêm bưu kiện</button>
+
+    </form>
+</div>

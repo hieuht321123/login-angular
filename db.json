@@ -1,0 +1,16 @@
+{
+  "nguoinhan": [
+    {
+      "name": "Người vận chuyển 2",
+      "city": "Nam Dinh",
+      "price": 12.72,
+      "id": 3
+    },
+    {
+      "name": "admin",
+      "city": "TB",
+      "price": 123,
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+<div *ngIf="check">
+    <nav class="navbar navbar-inverse bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active"><a [routerLink]="['/']">Home</a></li>
+                <li class="dropdown" routerLinkActive="active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Bưu kiện<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a [routerLink]="['/thuong']">Thường</a></li>
+                        <li><a [routerLink]="['/quocte']">Quốc tế</a></li>
+
+
+                    </ul>
+                </li>
+                <li routerLinkActive="active"><a [routerLink]="['/tienich']">Tiện ích</a></li>
+                <li style="margin-left: 600px;"><a (click)="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="containers ">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Quản lý bưu kiện</h3>
+            </div>
+            <div class="panel-body">
+                <router-outlet>
+
+                </router-outlet>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container" *ngIf="hideForm">
+    <h2 style="text-align: center;">Đăng nhập</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="alert alert-warning" *ngIf="error ==1">
+                <strong>Lỗi!</strong> Tên đăng nhập hoặc mật khẩu không đúng.
+            </div>
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <div class="form-group ">
+                    <label for="text">Tên đăng nhập:</label>
+                    <input type="text" class="form-control" id="name" required placeholder="Enter name" formControlName="usernames">
+
+                    <div *ngIf="f.usernames.invalid && (f.usernames.dirty || f.usernames.touched)">
+                        <div *ngIf="f.usernames.errors" class="invalid-feedback">
+                            <div *ngIf="f.usernames.errors.required">Bạn cần nhập tên đăng nhập</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Mật khẩu:</label>
+                    <input type="password" class="form-control" id="pwd" required placeholder="Enter password" formControlName="passwords">
+
+                    <div *ngIf="f.passwords.invalid && (f.passwords.dirty || f.passwords.touched)">
+                        <div *ngIf="f.passwords.errors" class="invalid-feedback">
+                            <div *ngIf="f.passwords.errors.required">Bạn cần nhập mật khẩu</div>
+                            <div *ngIf="f.passwords.errors.minlength">Mật khẩu của bạn phải có ít nhất 5 kí tự</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-warning" id="dangnhap" [disabled]="profileForm.invalid">Đăng nhập</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
